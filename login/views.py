@@ -35,6 +35,10 @@ def fsignup(request):
             messages.error(request, 'Username already exists')
             return redirect('fsignup')
         
+        elif Faculty.objects.filter(fno = fid).exists():
+            messages.error(request, 'Faculty id  already exists')
+            return redirect('fsignup')
+        
         else:
             #creating a new user in the login_user table 
             user = User.objects.create_user(username=username, email=email, password=password,first_name=firstName,last_name=lastName, is_faculty=is_faculty, is_student=is_student)
@@ -74,6 +78,10 @@ def ssignup(request):
         
         elif User.objects.filter(username = username).exists():
             messages.error(request, 'Username already exists')
+            return redirect('ssignup')
+        
+        elif Student.objects.filter(rollno = rollno).exists():
+            messages.error(request, 'Rollno already exists')
             return redirect('ssignup')
         
         else:
