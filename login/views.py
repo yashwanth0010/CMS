@@ -5,7 +5,8 @@ from django.contrib.auth.models import auth
 from django.db import connections
 import base64
 from .models import User,Faculty,Student
-from std.views import shome
+from faculty.models import Faculty_data
+from std.models import Student_data
 
 # Register your models here.
 # Create your views here.
@@ -43,6 +44,12 @@ def fsignup(request):
             fac.fno=fid
             fac.department=dept
             fac.save()
+
+            # Creating new entry in the faculty table of Data_db of the faculty that is registered
+            # Her we are creating a object for faculty class and saving it in the Data_db database faculty table
+            name= firstName+lastName
+            fdata = Faculty_data(fno=fid , name=name,department=dept)
+            fdata.save(using='Data_db')
             return redirect('flogin')
 
         
@@ -78,6 +85,10 @@ def ssignup(request):
             std.rollno=rollno
             std.department=dept
             std.save()
+            # Creating a new entry of student in Data_db student table
+            name=firstName+lastName
+            std_data = Student_data(rollno = rollno,name=name,department = dept)
+            std_data.save(using='Data_db')
             return redirect('slogin')
 
         
@@ -96,6 +107,9 @@ def flogin(request):
         if user is not None:
             if user.is_faculty == True:
                 auth.login(request, user)
+                u= Faculty.objects.get(user_id=user.id)
+                global fno 
+                fno = u.fno
                 return redirect('fhome')
             else:
                 messages.info(request,'Invalid login')

@@ -4,6 +4,7 @@ from django.conf import settings #add this
 from django.conf.urls.static import static
 from login import views
 from std import urls
+from faculty import urls
 urlpatterns = [
     path('', views.index, name='index'),
     path('index', views.index, name='index'),
@@ -12,6 +13,7 @@ urlpatterns = [
     path('fsignup', views.fsignup, name='fsignup'),
     path('ssignup', views.ssignup, name='ssignup'),
     path('logout', views.logout, name='logout'),
-    path('', include('std.urls'))
+    path('', include('std.urls')),
+    path('',include('faculty.urls'))
 
 ]

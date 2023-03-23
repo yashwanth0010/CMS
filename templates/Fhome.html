@@ -20,9 +20,24 @@
         <![endif]-->
         <center>
             {% if user.is_authenticated%}
-            <h1> Welcome Faculty </h1>
+            <h1> Welcome {{data.name}}</h1>
             <h4> Your last login is {{user.last_login}} </h4>
+            <h1> Your faculty id is {{data.fno}}</h1>
+            <h4> DEPT : {{data.department}} </h4>
+            <div>
+                <h2> Your Registered Subjects are </h2>
+                {% for std in data.subjects.values %}
+                    <h2>{{std}}</h2>
+                {% endfor %}
 
+            </div>
+            <div>
+                <h2> Your Students are </h2>
+                {% for std in data.students.values %}
+                    <h2>{{std}}</h2>
+                {% endfor %}
+
+            </div>
 
 
 
