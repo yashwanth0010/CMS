@@ -5,5 +5,6 @@ from django.conf.urls.static import static
 from faculty import views
 urlpatterns = [
     path('fhome', views.fhome, name='fhome'),
+    path('leave_req', views.leave_req, name='leave_req'),
 
 ]

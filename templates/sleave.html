@@ -52,8 +52,12 @@
                           <div class="col-md-6 mb-4 d-flex align-items-center">
           
                             <div class="form-outline">
-                              <input type="name" id="name" name="name" class="form-control form-control-lg" />
                               <label class="form-label" for="name" >Faculty name </label>
+                              <select name="name" id="name">
+                                {% for name in names %}
+                                <option value={{name}}>{{name}}</option>
+                                {% endfor %}
+                              </select>
                             </div>
                           </div>
                             <div class="col-md-6 mb-4">
