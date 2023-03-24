@@ -11,3 +11,18 @@ class Student_data(models.Model):
     class Meta:
         managed = True
         db_table = 'student'
+
+
+class StdLeaves(models.Model):
+    std_rollno = models.CharField(max_length=20)
+    type_of_leave = models.CharField(db_column='type of leave', max_length=20)  # Field renamed to remove unsuitable characters.
+    reason_for_leave = models.CharField(db_column='reason for leave', max_length=50, blank=True, null=True)  # Field renamed to remove unsuitable characters.
+    is_granted = models.IntegerField()
+    faculty_name = models.CharField(max_length=20, blank=True, null=True)
+    faculty_id = models.IntegerField(blank=True, null=True)
+    d_o_l = models.DateField(db_column='D.O.L', blank=True, null=True)
+    department = models.CharField(db_column='Department', max_length=20, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
+
+    class Meta:
+        managed = True
+        db_table = 'std_leaves'
