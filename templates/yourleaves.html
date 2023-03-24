@@ -15,15 +15,18 @@
     <body>
         <a href='shome'> Home  </a>
         <div>
-            <div>Date : {{leaves.d_o_l}}</div>
-            <div>Type of leave : {{leaves.type_of_leave}}</div>
-            <div> Reason : {{leaves.reason_for_leave}} </div>
-            <div> Faculty : {{leaves.faculty_name}} </div>
-            {% if leaves.is_granted == 0 %}
+            {% for leave in leaves %}
+            <div>Date : {{leave.d_o_l}}</div>
+            <div>Type of leave : {{leave.type_of_leave}}</div>
+            <div> Reason : {{leave.reason_for_leave}} </div>
+            <div> Faculty : {{leave.faculty_name}} </div>
+            {% if leave.is_granted == 0 %}
                 <div> Not Granted </div>
             {% else %}
                 <div> Granted </div>
             {% endif %}
+            <br>
+            {% endfor %}
         </div>
         
         <script src="" async defer></script>

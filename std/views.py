@@ -37,7 +37,7 @@ def sleave(request):
 
 def yourleaves(request):
     data = StdLeaves.objects.using('Data_db').filter(std_rollno=shome.rollno).values()
-    #print(data)
-    return render(request,'yourleaves.html',{'leaves' : data[0]})
+    #print(data[0])
+    return render(request,'yourleaves.html',{'leaves' : data})
 
 

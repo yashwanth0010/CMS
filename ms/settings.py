@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'login',
     'std',
     'faculty',
+    'rest_framework',
     
 ]
 
