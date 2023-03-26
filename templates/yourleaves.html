@@ -12,18 +12,20 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
-    <body>
+    <body style="background-color: #2C3639; color: aliceblue;">
         <a href='shome'> Home  </a>
-        <div>
+        <div style="font-size: 1.6em;">
             {% for leave in leaves %}
             <div>Date : {{leave.d_o_l}}</div>
             <div>Type of leave : {{leave.type_of_leave}}</div>
             <div> Reason : {{leave.reason_for_leave}} </div>
             <div> Faculty : {{leave.faculty_name}} </div>
             {% if leave.is_granted == 0 %}
-                <div> Not Granted </div>
-            {% else %}
-                <div> Granted </div>
+                <h4 style="color: blueviolet;"> Not Granted </h4>
+            {% elif  leave.is_granted == -1%}
+                <h4 style="color: red;"> Rejected </h4>
+            {%else%}
+                <h4 style="color: green;"> Granted</h4>
             {% endif %}
             <br>
             {% endfor %}

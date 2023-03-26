@@ -136,7 +136,7 @@ def slogin(request):
 
         username = request.POST['username']
         password = request.POST['password']
-        global user
+        #global user
         user = auth.authenticate(username=username, password=password)
 
         if user is not None:
@@ -144,9 +144,11 @@ def slogin(request):
                 auth.login(request, user)
                 #if user is present then go to student table and get rollno woth help of his id in the table which is a primay key
                 u= Student.objects.get(user_id=user.id)
-                global rollno
+                
                 #This rollno is accessed in student.views to get data of that particular student
-                rollno= u.rollno
+                #usign request.session to get only that rollno the student is logged in and accessing it anywhere
+                request.session['rollno'] = u.rollno
+                #slogin.rollno= u.rollno
                 return redirect('shome')
             else:
                  messages.info(request,'Invalid login')

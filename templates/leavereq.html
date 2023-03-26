@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    </head>
+    <body style="background-color: #2C3639; color: aliceblue;">
+        <a href="fhome" > Home</a>
+            {% for req in requests%}
+            <div>
+                <h3>{{req.std_rollno}}  </h3>
+            </div>
+            <div>Date : {{req.d_o_l}}</div>
+                <div>Type of leave :{{req.type_of_leave}}</div>
+                <div> Reason : {{req.reason_for_leave}}</div>
+                {% if req.is_granted == 0 %}
+                <h4  style="color: blueviolet;"> Not Granted </h4>
+                <form method="POST" , action="leave_req">
+                    {% csrf_token %}
+                    <input id="search" name="id" value="{{req.id}}"type= "hidden">
+                    <input class="btn btn-success" type="submit" value="Grant" name="grant" />
+                    <input class="btn btn-danger" type="submit" value="Reject" name="reject" />
+                </form>
+            {% elif  req.is_granted == -1%}
+                <h4 style="color: red;"> Rejected </h4>
+            {%else%}
+                <h4 style="color: green;"> Granted</h4>
+            {% endif %}
+           
+                <br>
+                {% endfor%}
+        
+        <script src="" async defer></script>
+    </body>
+</html>

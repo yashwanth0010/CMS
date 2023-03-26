@@ -22,7 +22,7 @@ class StdLeaves(models.Model):
     faculty_id = models.IntegerField(blank=True, null=True)
     d_o_l = models.DateField(db_column='D.O.L', blank=True, null=True)
     department = models.CharField(db_column='Department', max_length=20, blank=True, null=True)  # Field name made lowercase. Field renamed to remove unsuitable characters.
-
+    id = models.AutoField(db_column='ID', primary_key=True)
     class Meta:
         managed = True
         db_table = 'std_leaves'
