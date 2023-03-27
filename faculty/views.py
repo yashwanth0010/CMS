@@ -10,8 +10,8 @@ from std.models import StdLeaves
 
 # Create your views here.\
 def fhome(request):
-    fno = lv.fno
-    data = Faculty_data.objects.using('Data_db').filter(fno=fno).values()
+    fhome.fno = request.session['fno']
+    data = Faculty_data.objects.using('Data_db').filter(fno=request.session['fno']).values()
     #print(data)
     return render(request, 'fhome.html',{'data' : data[0]})
 					
@@ -30,7 +30,7 @@ def leave_req(request):
             lea.is_granted = -1
             lea.save()
 
-    data = reversed(StdLeaves.objects.using("Data_db").filter(faculty_id = lv.fno).values())
+    data = reversed(StdLeaves.objects.using("Data_db").filter(faculty_id =request.session['fno']).values())
     print(data)
     return render(request, 'leavereq.html',{'requests' : data})
 

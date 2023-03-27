@@ -116,8 +116,7 @@ def flogin(request):
             if user.is_faculty == True:
                 auth.login(request, user)
                 u= Faculty.objects.get(user_id=user.id)
-                global fno 
-                fno = u.fno
+                request.session['fno'] = u.fno
                 return redirect('fhome')
             else:
                 messages.info(request,'Invalid login')
