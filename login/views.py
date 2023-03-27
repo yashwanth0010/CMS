@@ -12,6 +12,11 @@ from std.models import Student_data
 # Create your views here.
 
 def index(request):
+    if request.method == 'POST':
+        if(request.POST.get('flogin' )):
+           return redirect('flogin')
+        if(request.POST.get('slogin' )):
+            return redirect('slogin')
     return render(request, 'index.html')
 
 

@@ -24,7 +24,15 @@ a:hover {
   align-items: center;
   justify-content: center;
 }
-button{
+#button{
   padding-left: 2em;
   margin-left: 2em;
+  font-size: 25px;
+  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 12px 16px 0 rgba(236, 231, 231, 0.24), 0 17px 50px 0 rgba(232, 227, 227, 0.19);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-left: 20px;
 }

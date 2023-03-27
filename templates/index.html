@@ -17,8 +17,11 @@
     </head>
     <body id='body'>
         <div id="login">
-            <button type="button" class="btn btn-primary"><a href="flogin">  Faculty Login </a></button>
-            <button type="button" class="btn btn-primary"><a href="slogin">  Student Login </a></button>
+            <form method="POST" , action="index">
+                {% csrf_token %}
+                <input class="btn btn-primary"" type="submit" value="FACULTY LOGIN" name="flogin"  id="button"/>
+                <input class="btn btn-primary"" type="submit" value="STUDENT LOGIN" name="slogin" id="button"/>
+            </form>
             
          </div>
         <script src="" async defer></script>
