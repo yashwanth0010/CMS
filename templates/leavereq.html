@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -10,36 +11,76 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="{% static 'home.css' %}">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     </head>
-    <body style="background-color: #2C3639; color: aliceblue;">
-        <a href="fhome" > Home</a>
-            {% for req in requests%}
-            <div>
-                <h3>{{req.std_rollno}}  </h3>
+                                                                                                                  
+    <body style="background-color: #404258; color: aliceblue;">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="fhome"><img src = "{{'static/logo.jpg'}}" width="40" height="40"></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="fhome">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Subjects</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="fstd">Students</a>
+                </li>
+               
+                <li class="nav-item">
+                  <a class="nav-link" href="leave_req">Leave Requests</a>
+                </li>
+              </ul>
+              <li class="form-inline my-2 my-lg-0">
+                  <a class="nav-link" href="logout">Logout</a>
+              </li>
             </div>
-            <div>Date : {{req.d_o_l}}</div>
-                <div>Type of leave :{{req.type_of_leave}}</div>
-                <div> Reason : {{req.reason_for_leave}}</div>
-                {% if req.is_granted == 0 %}
-                <h4  style="color: blueviolet;"> Not Granted </h4>
-                <form method="POST" , action="leave_req">
-                    {% csrf_token %}
-                    <input id="search" name="id" value="{{req.id}}"type= "hidden">
-                    <input class="btn btn-success" type="submit" value="Grant" name="grant" />
-                    <input class="btn btn-danger" type="submit" value="Reject" name="reject" />
-                </form>
-            {% elif  req.is_granted == -1%}
-                <h4 style="color: red;"> Rejected </h4>
-            {%else%}
-                <h4 style="color: green;"> Granted</h4>
-            {% endif %}
-           
-                <br>
+          </nav>
+          <center>         
+          <h2>Leave Requests</h2>   
+          </center>      
+          <div class="row">
+
+            {% for req in requests%}
+            <br/>
+                <div class="col-sm-12 col-md-6 col-lg-3 pb-4" id="card">
+                    <div class="card h-100" style="border-color: orangered;"  id="card">
+                          <div class="card-body">
+                            <h3 class="card-title"> Rollno : {{req.std_rollno}} </h3>
+                              <h5 class="card-text" > Date : {{req.d_o_l}}</h5>
+                              <h5 class="card-text">Type of leave :{{req.type_of_leave}}</h5>
+                              <h5 class="card-text">Reason : {{req.reason_for_leave}} </h5>
+                              {% if req.is_granted == 0 %}
+                              <h4  style="color: blueviolet;"> Not Granted </h4>
+                              <form method="POST" , action="leave_req">
+                                  {% csrf_token %}
+                                  <input id="search" name="id" value="{{req.id}}" type= "hidden"/>
+                                  <input class="btn btn-success" type="submit" value="Grant" name="grant" />
+                                  <input class="btn btn-danger" type="submit" value="Reject" name="reject" />
+                              </form>
+                          {% elif  req.is_granted == -1%}
+                              <h4 style="color: red;"> Rejected </h4>
+                          {%else%}
+                              <h4 style="color: green;"> Granted</h4>
+                          {% endif %}
+
+                          </div>
+                    </div>
+                </div>
                 {% endfor%}
+                </div>
         
         <script src="" async defer></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </body>
 </html>
