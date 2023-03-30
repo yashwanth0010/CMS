@@ -57,7 +57,7 @@ def fsignup(request):
             # Creating new entry in the faculty table of Data_db of the faculty that is registered
             # Her we are creating a object for faculty class and saving it in the Data_db database faculty table
             name= firstName+lastName
-            fdata = Faculty_data(fno=fid , name=name,department=dept)
+            fdata = Faculty_data(fno=fid , name=name,department=dept,students={},subjects={})
             fdata.save(using='Data_db')
             return redirect('flogin')
 
@@ -100,7 +100,7 @@ def ssignup(request):
             std.save()
             # Creating a new entry of student in Data_db student table
             name=firstName+lastName
-            std_data = Student_data(rollno = rollno,name=name,department = dept)
+            std_data = Student_data(rollno = rollno,name=name,department = dept,subjects = {})
             std_data.save(using='Data_db')
             return redirect('slogin')
 
