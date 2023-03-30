@@ -3,8 +3,22 @@
 }
 
 #card{
-    background-color: #404258;
+    background-color: #404260;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-top: 5%;
+
 }
 h1,h2,h3,h4,h5{
     color: #c9d6d4;
+}
+table, th, td {
+    height: 100%;
+    border: 5px solid black;
+    border-radius: 5%;
+    color: aliceblue;
+    text-align: center;
+    
+  }
+#row{
+    height: 50px;
 }

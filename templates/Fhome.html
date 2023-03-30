@@ -45,15 +45,80 @@
         <center>
             {% if user.is_authenticated%}
             <h1> Welcome {{data.name}}</h1>
-            <h4> Your last login is {{user.last_login}} </h4>
-            <h1> Your faculty id is {{data.fno}}</h1>
-            <h4> DEPT : {{data.department}} </h4>
+            <h5> Your faculty id is {{data.fno}}</h5>
+            <h5> DEPT : {{data.department}} </h5>
+            <h5> Your last login was {{user.last_login}} </h5>
             <div>
-                <h2> Your Registered Subjects are </h2>
+                <!--<h2> Your Registered Subjects are </h2>
                 {% for std in data.subjects.values %}
                     <h2>{{std}}</h2>
-                {% endfor %}
+                {% endfor %}-->
+                <table style="width:70%">
+                  <tr id="row">
+                    <th>Day</th>
+                    <th>1st Hour</th>
+                    <th>2nd Hour</th>
+                    <th>3rd Hour</th>
+                    <th>4th Hour</th>
+                    <th>5th Hour</th>
+                    <th>6th Hour</th>
+                  </tr>
+                  <tr id="row">
+                    <td>Monday</td>
+                    <td>AECS</td>
+                    <td>AECS</td>
+                    <td>AECS</td>
+                    <td>NLP</td>
+                    <td>CS</td>
+                    <td>IC</td>
+                  </tr>
+                  <tr id="row">
+                    <td>Tuesday</td>
+                    <td>IT</td>
+                    <td>CC</td>
+                    <td>SEC</td>
+                    <td>IT</td>
+                    <td>DL</td>
+                    <td>SEC</td>
+                  </tr>
+                  <tr id="row">
+                    <td>Wednesday</td>
+                    <td>DL</td>
+                    <td>DL</td>
+                    <td>DL</td>
+                    <td>IC</td>
+                    <td>NLP</td>
+                    <td>SEC</td>
+                  </tr>
+                  <tr id="row">
+                    <td>Thursday</td>
+                    <td>DL</td>
+                    <td>CS</td>
+                    <td>NLP</td>
+                    <td>IT</td>
+                    <td>DL</td>
+                    <td>SEC</td>
+                  </tr>
+                  <tr id="row">
+                    <td>Friday</td>
+                    <td>AC</td>
+                    <td>SEC</td>
+                    <td>CC</td>
+                    <td>NLP</td>
+                    <td>DL</td>
+                    <td>CC</td>
+                  </tr>
+                  <tr id="row">
+                    <td>Saturday</td>
+                    <td>DL</td>
+                    <td>IT</td>
+                    <td>CC</td>
+                    <td>NLP</td>
+                    <td>TS</td>
+                    <td>TS</td>
+                  </tr>
 
+                </table>
             </div>
 
 

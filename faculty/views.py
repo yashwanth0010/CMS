@@ -65,9 +65,45 @@ def f_std(request):
                 'dept' : d.department,
                 'attd' : d.attendence
             }
-        print(dis)
+        #print(dis)
 
         return render(request, 'fstd.html', {"data" : dis})
     return render(request, 'fstd.html')
 
 
+
+def edit(request):
+    if request.method == 'POST':
+         
+         rollno = request.POST.get("roll")
+         name = request.POST.get("name")
+         dept = request.POST.get("dept")
+         attd= request.POST.get("attd")
+         subs = request.POST.get("subs")
+         stdd = Student_data.objects.using("Data_db").get(rollno =rollno )
+         stdd.name = name
+         stdd.department = dept
+         stdd.attendence = attd
+         maxi="0"
+         subs = subs.split(",")
+         #print(subs)
+         if(len(subs) != 0):
+            ssu = stdd.subjects
+            if(ssu):
+                maxi = max(ssu.keys())
+                maxi = int(maxi)
+                #print(stds)
+            else:
+                maxi=0
+            for sub in subs:
+                ssu.update({maxi+1: sub})
+                maxi=maxi+1
+         stdd.save()
+         messages.info(request, 'Updated')
+         return redirect('fstd')
+    else:
+
+        rollno = request.GET.get("roll")
+        data = Student_data.objects.using('Data_db').filter(rollno=rollno).values()
+        #print(data[0])
+        return render(request,'sedit.html',{"data" : data[0]})

@@ -50,12 +50,11 @@
             <div class="row">
             {% for leave in leaves %}
 
-            <div class="col-sm-12 col-md-6 col-lg-3 pb-4" id="card">
+            <div class="col-sm-12 col-md-6 col-lg-3 pb-4">
                 <div class="card h-100" style="border-color: orangered;"  id="card">
                       <div class="card-body">
                         <h3 class="card-title">Date : {{leave.d_o_l}} </h3>
                           <h5 class="card-text" > Type of leave : {{leave.type_of_leave}}</h5>
-                          <h5 class="card-text">Type of leave :{{req.type_of_leave}}</h5>
                           <h5 class="card-text">Reason : {{leave.reason_for_leave}} </h5>
                           <h5 class="card-text"> Faculty : {{leave.faculty_name}}</h5>
                           {% if leave.is_granted == 0 %}

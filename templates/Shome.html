@@ -48,19 +48,85 @@
         <center>
             {% if user.is_authenticated%}
             <h1> Welcome {{std.name}} </h1>
-            <h4> Your last login is {{user.last_login}} </h4>
-            <h1> Your roll is {{std.rollno}}</h1>
-            <h4> DEPT : {{std.department}} </h4>
-            <h3> Attendance : {{std.attendence}} </h3>
-            <div>
+            <h5> Your roll is {{std.rollno}}</h5>
+            <h5> DEPT : {{std.department}} </h5>
+            <h5> Your last login is {{user.last_login}} </h5>
+            <h5> Attendance : {{std.attendence}} </h5>
+            <!--<div>
                 <h2> Your Registered Subjects are </h2>
                 {% for std in std.subjects.values %}
                     <h2>{{std}}</h2>
                 {% endfor %}
-            </div>
+            </div>-->
+
+            <table style="width:70%">
+              <tr id="row">
+                <th>Day</th>
+                <th>1st Hour</th>
+                <th>2nd Hour</th>
+                <th>3rd Hour</th>
+                <th>4th Hour</th>
+                <th>5th Hour</th>
+                <th>6th Hour</th>
+              </tr>
+              <tr id="row">
+                <td>Monday</td>
+                <td>AECS</td>
+                <td>AECS</td>
+                <td>AECS</td>
+                <td>NLP</td>
+                <td>CS</td>
+                <td>IC</td>
+              </tr>
+              <tr id="row">
+                <td>Tuesday</td>
+                <td>IT</td>
+                <td>CC</td>
+                <td>SEC</td>
+                <td>IT</td>
+                <td>DL</td>
+                <td>SEC</td>
+              </tr>
+              <tr id="row">
+                <td>Wednesday</td>
+                <td>DL</td>
+                <td>DL</td>
+                <td>DL</td>
+                <td>IC</td>
+                <td>NLP</td>
+                <td>SEC</td>
+              </tr>
+              <tr id="row">
+                <td>Thursday</td>
+                <td>DL</td>
+                <td>CS</td>
+                <td>NLP</td>
+                <td>IT</td>
+                <td>DL</td>
+                <td>SEC</td>
+              </tr>
+              <tr id="row">
+                <td>Friday</td>
+                <td>AC</td>
+                <td>SEC</td>
+                <td>CC</td>
+                <td>NLP</td>
+                <td>DL</td>
+                <td>CC</td>
+              </tr>
+              <tr id="row">
+                <td>Saturday</td>
+                <td>DL</td>
+                <td>IT</td>
+                <td>CC</td>
+                <td>NLP</td>
+                <td>TS</td>
+                <td>TS</td>
+              </tr>
+
+            </table>
             {% endif %}
         </center>
-        <script src="" async defer></script>
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

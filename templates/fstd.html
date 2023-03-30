@@ -59,13 +59,18 @@
                 <div class="row">
                 {% for std in data.values%}
 
-                    <div class="col-sm-12 col-md-6 col-lg-3 pb-4" id="card">
+                    <div class="col-sm-12 col-md-6 col-lg-3 pb-4" >
                         <div class="card h-100" style="border-color: orangered;""  id="card">
                               <div class="card-body">
+                                <form method="GET" action="editstd">
+                                  {% csrf_token %}
+                                  <input id="roll" name="roll" value="{{std.rollno}}" type= "hidden"/>
                                 <h3 class="card-title"> Rollno : {{std.rollno}}</h3>
                                   <h5 class="card-text" > Name : {{std.name}}</h5>
                                   <h5 class="card-text">Department : {{std.dept}}</h5>
                                   <h5 class="card-text">Attendance : {{std.attd}} </h5>
+                                  <button type="submit" class="btn btn-primary ">Edit</button>
+                                </form>
                               </div>
                         </div>
                     </div>
