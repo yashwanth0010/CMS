@@ -6,6 +6,7 @@ from std import views
 urlpatterns = [
     path('shome', views.shome, name='shome'),
     path('sleave',views.sleave, name='sleave'),
-    path('yourleaves' , views.yourleaves, name = 'yourleaves')
+    path('yourleaves' , views.yourleaves, name = 'yourleaves'),
+    path('subjects', views.subjects, name='subjects'),
 
 ]

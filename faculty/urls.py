@@ -10,4 +10,6 @@ urlpatterns = [
      path('editstd', views.edit, name='edit'),
 
 
+
+
 ]

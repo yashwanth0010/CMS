@@ -45,3 +45,10 @@ def yourleaves(request):
     return render(request,'yourleaves.html',{'leaves' : data})
 
 
+def subjects(request):
+    data = Student_data.objects.using('Data_db').filter(rollno = request.session['rollno']).values()
+    d= data[0]['subjects']
+    #print(d)
+    return render(request,'subs.html' , {'subs' : d})
+
+

@@ -7,7 +7,14 @@ import base64
 from .models import User,Faculty,Student
 from faculty.models import Faculty_data
 from std.models import Student_data
+from django.conf import settings
+from django.core.mail import send_mail
 
+
+
+#!/usr/bin/env python 
+# coding: utf8
+# -*- coding: utf-8 -*-
 # Register your models here.
 # Create your views here.
 
@@ -102,6 +109,19 @@ def ssignup(request):
             name=firstName+lastName
             std_data = Student_data(rollno = rollno,name=name,department = dept,subjects = {})
             std_data.save(using='Data_db')
+            """subject = 'welcome to College of ???'.encode("UTF-8")
+            message = f'Hi {ouser.username}, Welcome To college of ??? We are grateful to have you'.encode("UTF-8")
+            email_from = settings.EMAIL_HOST_USER.encode("UTF-8")
+            recipient_list = [ouser.email, ]
+            send_mail( subject, message, email_from, recipient_list,fail_silently=False )"""
+            send_mail(
+                'Welcome',
+                'Welcome To college of ??? We are grateful to have you',
+                'cyashwanthkumar@yahoo.com',
+                [ouser.email],
+                fail_silently=False,
+            )
+
             return redirect('slogin')
 
         
