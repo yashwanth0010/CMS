@@ -1,4 +1,5 @@
 # CMS
+This project is developed using Django Framework.
 This website is for college management. In this one can update the details of students and students and apply for leaves and faculty can reject or grant those leaves and many more features.
 I used two databases one for login authentication and other for storing the details of students and faculty.
 The ScreenShots : 
