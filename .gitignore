@@ -1,3 +1,12 @@
 productionfiles/
 cms/
+std/migrations/
+std/__pycache__/
+routers/__pycache__/
+ms/__pycache__/
+login/migrations/
+login/__pycache__/
+faculty/migrations/
+faculty/__pycache__/
+
 
